@@ -1,1 +1,405 @@
-Hello, world!
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+    table {
+      border-collapse: collapse;
+    }
+    table, td, th {
+      border: 1px solid black;
+      text-align: center;
+    }
+    .left_cell{
+      font-weight: bold;
+      text-align: left;
+    }
+    .speaker_cell {
+      font-weight: bold;
+    }
+    .neutral_emotion_cell {
+      background-color:#EAFAF1;
+      align:center;
+    }
+    .nonneutral_emotion_cell {
+      background-color:pink;
+      font-weight: bold;
+    }
+    </style>
+    <title>Audio samples from "Tacotron: Towards End-to-End Speech Synthesis"</title>
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Audio samples from "Learning to Transfer Multi-speaker Emotional Prosody to a Neutral Speaker"</h1>
+      </header>
+    </article>
+
+    <div><b>Confernce: </b><a href="https://2020.ieeeicassp.org/">ICASSP 2020</a></div>
+    <div><b>Session: </b><a href="https://2020.ieeeicassp.org/program/show-tell/">Show and Tell</a></div>
+    <div><b>Presentation: </b><a href="slides/ICASSP2020_ST_slides.pdf">slides</a></div>
+    <div><b>Presentation time: </b> Friday, 8 May, 11:45 – 13:45</div>
+    <div><b>Authors:</b> Authors Sungjae Cho, Sejik Park, Tae-Ho Kim, Soo-Young Lee</div>
+    <div><b>Abstract:</b>
+      Most recent emotional speech synthesizers have been studied with a large training data.
+      These systems require a sufficient number of audios to be recorded with respect to different emotions for each speaker.
+      Acquiring emotional speech is more expensive than acquiring neutral speech because it requires professional acting ability
+      to express natural emotional utterance in the voice recording environment. Thus, it would be economical, beneficial to
+      transfer decent emotional prosody to neutral voice. We demonstrate our system can learn to speak the emotional speech of
+      multiple speakers from their emotional audios, and transfer emotional prosody to the voice of a speaker who provides only
+      neutral speech. Our system is a neural network architecture that synthesizes speech directly from text and emotion and
+      speaker identifiers. This architecture is mainly composed of two components: modified Tacotron 2 and original WaveGlow.
+      Tacotron 2 is a recurrent sequence-to-sequence network that maps character embeddings to mel-spectrograms; WaveGlow is
+      a vocoder to synthesize time-domain waveforms from those spectrograms. The modified Tacotron 2 has been trained to
+      synthesize speech from text depending on emotions and speakers by modification of injecting emotion and speaker encoding
+      into the decoder part of Tacotron 2. This allows the system to learn to synthesize not only emotional speech of speakers
+      with emotional audios but also that of a speaker without emotional audios. In this demo, audience can interactively enter
+      any sentence to the speech synthesis system. Additionally, speech synthesis markup language (SSML) has been incorporated
+      to easily control prosody of spoken input text. With the provided SSML, audience can manipulate emotion and speaker as
+      well as three basic components: rate, volume, and pitch for fine-tuning. These three components are controllable at the
+      character-level. The positions of characters spoken in the mel-spectrogram are estimated from which characters are highly
+      attended to generate each mel-spectrogram.</div>
+
+    <div><br/>In this demo, we are unable to provide an interactive environment that incorporates SSML to easily control prosody
+    of input text. We aplogize for no provision of an interactive environment.
+    </div>
+    <div><br/>All of the below phrases are unseen by our TTS model during training.</div>
+
+
+
+    <div>
+      <h3>Demo 1: Multi-speaker emotional TTS</h3>
+      <div>
+        In the first demo, we are demonstrating multi-speaker emotional TTS.
+        Through our system, you can synthesize 5 emotional voices across two
+        female speakers: B and J. In the training data, we had neutral and
+        emotional speech audios of the two speakers.
+        This is a major difference with the second demo.
+        I'm going to play 3 examples for each emotion-speaker pair.
+        What we want you to pay attention to is how different given audios
+        are across emotions and speakers. First, you will listen to a neural
+        voice, and then an emotional voice will be presented.
+      </div>
+      <br/>
+      <table border="1">
+        <tr>
+          <td class="left_cell">Speaker</td>
+          <td colspan="2" class="speaker_cell">B</td>
+          <td colspan="2" class="speaker_cell">J</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Amused</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Amused</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm amused. I'm really amused.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_Im amused Im really amused.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_amused_Im amused Im really amused.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_Im amused Im really amused.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_amused_Im amused Im really amused.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">What is that?</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_What is that.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_amused_What is that.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_What is that.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_amused_What is that.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I have first seen this in my life.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_I have first seen this in my life.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_amused_I have first seen this in my life.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_I have first seen this in my life.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_amused_I have first seen this in my life.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Angry</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Angry</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm angry. I'm really angry.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_Im angry Im really angry.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_angry_Im angry Im really angry.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_Im angry Im really angry.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_angry_Im angry Im really angry.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It makes me so upset.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_It makes me so upset.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_angry_It makes me so upset.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_It makes me so upset.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_angry_It makes me so upset.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">What is this stupid thing?</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_What is this stupid thing.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_angry_What is this stupid thing.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_What is this stupid thing.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_angry_What is this stupid thing.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Disgusted</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Disgusted</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm disgusted. I'm really disgusted.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_Im disgusted Im really disgusted.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_disgusted_Im disgusted Im really disgusted.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_Im disgusted Im really disgusted.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_disgusted_Im disgusted Im really disgusted.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It smells so disgusting.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_It smells so disgusting.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_disgusted_It smells so disgusting.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_It smells so disgusting.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_disgusted_It smells so disgusting.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It feels really strange.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_It feels really strange.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_disgusted_It feels really strange.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_It feels really strange.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_disgusted_It feels really strange.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Sleepy</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Sleepy</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm sleepy. I'm really sleepy.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_Im sleepy Im really sleepy.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_sleepy_Im sleepy Im really sleepy.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_Im sleepy Im really sleepy.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_sleepy_Im sleepy Im really sleepy.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It is too late. It is time to go to bed.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_It is too late It is time to go to bed.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_sleepy_It is too late It is time to go to bed.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_It is too late It is time to go to bed.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_sleepy_It is too late It is time to go to bed.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I didn't remember that scene. It was so bored.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_neutral_I didnt remember that scene It was so bored.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-bea/emovdb-w-bea_sleepy_I didnt remember that scene It was so bored.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_neutral_I didnt remember that scene It was so bored.wav"></audio></td>
+          <td><audio controls><source src="audios/demo1-jenie/emovdb-w-jenie_sleepy_I didnt remember that scene It was so bored.wav"></audio></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <div>
+      <h3>Demo 2: Emotional TTS spoken by a neutral speaker</h3>
+      <div>
+        In the second demo, we are demonstrating emotional TTS spoken by
+        a neutral speaker.
+        Through our system, you can synthesize 5 emotional voices of
+        a female speaker, L.
+        In the training data, there were only neutral speech audios of
+        the L speaker.
+        Our system can generate emotional speech of the L speaker because
+        emotional prosody has been transferred from the other two speakers'
+        emotional prosody by jointly learning their emotional speech.
+        Let’s listen to emotional voices of the L speaker.
+      </div>
+      <br/>
+      <table border="1">
+        <tr>
+          <td class="left_cell">Speaker</td>
+          <td colspan="2" class="speaker_cell">L</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Amused</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm amused. I'm really amused.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_Im amused Im really amused.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_amused_Im amused Im really amused.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">What is that?</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_What is that.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_amused_What is that.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I have first seen this in my life.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_I have first seen this in my life.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_amused_I have first seen this in my life.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Angry</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm angry. I'm really angry.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_Im angry Im really angry.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_angry_Im angry Im really angry.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It makes me so upset.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_It makes me so upset.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_angry_It makes me so upset.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">What is this stupid thing?</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_What is this stupid thing.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_angry_What is this stupid thing.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Disgusted</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm disgusted. I'm really disgusted.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_Im disgusted Im really disgusted.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_disgusted_Im disgusted Im really disgusted.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It smells so disgusting.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_It smells so disgusting.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_disgusted_It smells so disgusting.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It feels really strange.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_It feels really strange.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_disgusted_It feels really strange.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Emotion</td>
+          <td class="neutral_emotion_cell">Neutral</td>
+          <td class="nonneutral_emotion_cell">Sleepy</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I'm sleepy. I'm really sleepy.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_Im sleepy Im really sleepy.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_sleepy_Im sleepy Im really sleepy.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">It is too late. It is time to go to bed.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_It is too late It is time to go to bed.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_sleepy_It is too late It is time to go to bed.wav"></audio></td>
+        </tr>
+        <tr>
+          <td class="left_cell">Script</td>
+          <td colspan="4">I didn't remember that scene. It was so bored.</td>
+        </tr>
+        <tr>
+          <td class="left_cell">Audio</td>
+          <td><audio controls><source src="audios/demo2/ljs-w_neutral_I didnt remember that scene It was so bored.wav"></audio></td>
+          <td><audio controls><source src="audios/demo2/ljs-w_sleepy_I didnt remember that scene It was so bored.wav"></audio></td>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>
