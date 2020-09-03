@@ -27,3 +27,8 @@ To listen to audios, go to [https://sungjae-cho.github.io/ICASSP2020_STDemo/](ht
 In the second demo, we are demonstrating emotional TTS spoken by a neutral speaker. Through our system, you can synthesize 5 emotional voices of a female speaker, L. In the training data, there were only neutral speech audios of the L speaker. Our system can generate emotional speech of the L speaker because emotional prosody has been transferred from the other two speakers' emotional prosody by jointly learning their emotional speech. Let’s listen to emotional voices of the L speaker.
 
 To listen to audios, go to [https://sungjae-cho.github.io/ICASSP2020_STDemo/](https://sungjae-cho.github.io/ICASSP2020_STDemo/).
+
+
+### Acknowledgement
+This work was supported by Institute of Information & Communications Technology Planning & Evaluation(IITP) grant funded by the Korea government(MSIT) [2016-0-00562(R0124-16-0002), Emotional Intelligence Technology to Infer Human Emotion and Carry on Dialogue Accordingly], and Ministry of Culture, Sports and Tourism(MCST) and Korea Creative Content Agency(KOCCA) in the Culture Technology(CT) Research & Development Program 2019.
+  
